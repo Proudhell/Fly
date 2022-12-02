@@ -2,31 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Radiergummi : MonoBehaviour
 {
-    [SerializeField] private float _speed =4f;
-    private int HP = 2;
+    [SerializeField] private float _speed =5f;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.down * Time.deltaTime * _speed);
 
         if(transform.position.y <-4)
         {
-            Destroy(gameObject);
+            transform.position = new Vector2(Random.Range(-8f,8f),6);
         }
     }
     private void OnTriggerEnter(Collider other){
         if(other.tag == "Bullet")
         {
-            HP--;
-            if (HP < 0)
-                Destroy(gameObject);
+            Destroy(gameObject);
             Destroy(other.gameObject);
         }
         if(other.tag == "Player")

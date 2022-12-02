@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
-{    
+{
     public GameObject Enemy;
     void Start()
     {
@@ -11,10 +11,15 @@ public class Spawner : MonoBehaviour
     }
    IEnumerator SpawnEnemy()
    {
-    for(; ; )
-    {
-        yield return new WaitForSeconds(2);
-        Instantiate(Enemy, new Vector3(Random.Range(-8f, 8f), 8, 0), Quaternion.identity);
-    }
+        for (; ; )
+        {
+                yield return new WaitForSeconds(2);
+                float x = Random.Range(-8f, 8f);
+            for (int i = 0; i < 3; i++)
+            {                
+                yield return new WaitForSeconds(0.3f);
+                Instantiate(Enemy, new Vector3(x, 8, 0), Quaternion.identity);
+            }         
+        }
    }
 }
