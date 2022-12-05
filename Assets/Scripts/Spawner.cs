@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
         for (; ; )
         {
                 yield return new WaitForSeconds(2);
-                float x = Random.Range(-8f, 8f);
+                float x = Random.Range(-2.7f, 2.7f);
             for (int i = 0; i < 3; i++)
             {                
                 yield return new WaitForSeconds(0.3f);

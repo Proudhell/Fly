@@ -46,9 +46,18 @@ public class PlayerControl : MonoBehaviour
         }
     }
     void Movement(){
-        float Vertical = Input.GetAxis("Vertical");
-        float Horizontal = Input.GetAxis("Horizontal");
-        transform.Translate(new Vector2(Horizontal,Vertical)*Time.deltaTime*_speed);
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+            if (touchPos.x > Camera.main.transform.position.x)
+                transform.position = new Vector3(touchPos.x, touchPos.y, 0f);
+            else
+                transform.position = new Vector3(touchPos.x, touchPos.y, 0f);
+        }
+        //float Vertical = Input.GetAxis("Vertical");
+        //float Horizontal = Input.GetAxis("Horizontal");
+        //transform.Translate(new Vector2(Horizontal,Vertical)*Time.deltaTime*_speed);
 
     }
     public void Damage(){
