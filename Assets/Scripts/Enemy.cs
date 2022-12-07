@@ -30,11 +30,7 @@ public class Enemy : MonoBehaviour
             q = 1;
         else if (sin_1 > 0.5)
             q = 0;
-            
-        
-        
-
-        if (transform.position.y <-4)
+        if (transform.position.y <-6)
         {
             Destroy(gameObject);
         }

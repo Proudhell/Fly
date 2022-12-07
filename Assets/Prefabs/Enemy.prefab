@@ -113,6 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  score: 100
+  player: {fileID: 5884471963437876291, guid: 585320add1a86154896cc8c19dac874a, type: 3}
 --- !u!54 &8681634170904038066
 Rigidbody:
   m_ObjectHideFlags: 0
