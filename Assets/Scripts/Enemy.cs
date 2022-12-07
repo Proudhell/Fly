@@ -6,6 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed =3f;
+    [SerializeField] private int score = 50;
+    public GameObject player;
     private int HP = 2;
     double sin_1 = 0.5;
     int q = 0;
@@ -20,7 +22,6 @@ public class Enemy : MonoBehaviour
         float angle = Convert.ToSingle(Math.Cos(sin_1));
         transform.Translate(0, Time.deltaTime*-_speed, 0);
         transform.Rotate(0, -Convert.ToSingle(sin_1)/2, Convert.ToSingle(sin_1));
-        Debug.Log(sin_1);
         if (q == 0)
             sin_1 -= 0.007;
         else
@@ -43,7 +44,11 @@ public class Enemy : MonoBehaviour
         {
             HP--;
             if (HP < 0)
+            {
                 Destroy(gameObject);
+                player = GameObject.FindGameObjectWithTag("Player");
+                player.gameObject.GetComponent<PlayerControl>().AddScore(score);
+            }
             Destroy(other.gameObject);
         }
         if(other.tag == "Player")
