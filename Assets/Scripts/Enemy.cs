@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _speed =4f;
+    [SerializeField] private float _speed =3f;
+    [SerializeField] private int score = 50;
+    public GameObject player;
     private int HP = 2;
-    double sin_1 = 1;
+    double sin_1 = 0.5;
     int q = 0;
     void Start()
     {
@@ -17,11 +19,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float angle = Convert.ToSingle(Math.Sin(sin_1));
+        float angle = Convert.ToSingle(Math.Cos(sin_1));
         transform.Translate(0, Time.deltaTime*-_speed, 0);
-        transform.Rotate(0, 0, Convert.ToSingle(angle));
-        Debug.Log(angle);        
-            sin_1 -= 0.03;
+        transform.Rotate(0, -Convert.ToSingle(sin_1)/2, Convert.ToSingle(sin_1));
+        if (q == 0)
+            sin_1 -= 0.007;
+        else
+            sin_1 += 0.007;
+        if (sin_1 < -0.5)
+            q = 1;
+        else if (sin_1 > 0.5)
+            q = 0;
+            
         
         
 
@@ -35,7 +44,11 @@ public class Enemy : MonoBehaviour
         {
             HP--;
             if (HP < 0)
+            {
                 Destroy(gameObject);
+                player = GameObject.FindGameObjectWithTag("Player");
+                player.gameObject.GetComponent<PlayerControl>().AddScore(score);
+            }
             Destroy(other.gameObject);
         }
         if(other.tag == "Player")

@@ -14,10 +14,10 @@ public class Spawner : MonoBehaviour
         for (; ; )
         {
                 yield return new WaitForSeconds(2);
-                float x = Random.Range(-2.7f, 2.7f);
+                float x = Random.Range(-2.5f, 2.5f);
             for (int i = 0; i < 3; i++)
             {                
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.4f);
                 Instantiate(Enemy, new Vector3(x, 8, 0), Quaternion.identity);
             }         
         }
