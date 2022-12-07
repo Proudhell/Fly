@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b868f5e45f69e047aa543d64b228254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
-  score: 100
+  _speed: 2
+  score: 50
   player: {fileID: 5884471963437876291, guid: 585320add1a86154896cc8c19dac874a, type: 3}
 --- !u!54 &8681634170904038066
 Rigidbody:
