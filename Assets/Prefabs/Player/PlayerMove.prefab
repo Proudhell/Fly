@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.04
-  _angle1: 0.03
+  _angle1: 0.09
   _child: {fileID: 3608219047130489580}
 --- !u!1001 &7186372857712551599
 PrefabInstance:

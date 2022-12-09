@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: BulletSpeed_2
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 782513563384605494, guid: ec3b09df27c1ef544b4c706db9398c47, type: 3}
+      propertyPath: _angle1
+      value: 0.09
+      objectReference: {fileID: 0}
     - target: {fileID: 3608219047969244036, guid: ec3b09df27c1ef544b4c706db9398c47, type: 3}
       propertyPath: m_Name
       value: PlayerMove
