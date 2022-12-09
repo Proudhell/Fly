@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/TrialScene.unity
+    guid: cc1e0a958d163724a8ba3aa23acd7af7
   m_configObjects: {}
